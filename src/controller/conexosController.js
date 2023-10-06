@@ -8,9 +8,15 @@ import Order from "../model/orderModel.js";
 class ConexosController{
     async create(req, res){
         try {
-            const{nome, cpf, telefone, email, horario, status} = req.body;
+            const{nome, cpf, telefone, email, plano, horario, status} = req.body;
             const newOrder = await Order.create({
-                nome, cpf, telefone, email, horario, status
+                nome,
+                cpf,
+                telefone,
+                email,
+                plano,
+                horario,
+                status
             });
             res.status(201).json({newOrder, message: "Cliente criado!"});
         } catch (error) {
